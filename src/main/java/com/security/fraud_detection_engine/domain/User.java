@@ -1,20 +1,17 @@
-package com.frauddetection.domain;
+package com.security.fraud_detection_engine.domain;
 
-import com.frauddetection.domain.enums.RiskLevel;
+import com.security.fraud_detection_engine.domain.enums.RiskLevel;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+import lombok.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Entity
+@Table(name = "users")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "users")
 public class User {
 
     @Id
@@ -45,7 +42,6 @@ public class User {
     protected void onCreate() {
         firstSeenAt = LocalDateTime.now();
         lastSeenAt = LocalDateTime.now();
-        riskLevel = RiskLevel.LOW;
-        isFlagged = false;
+        if (riskLevel == null) riskLevel = RiskLevel.LOW;
     }
 }
