@@ -1,6 +1,6 @@
-package com.frauddetection.domain;
+package com.security.fraud_detection_engine.domain;
 
-import com.frauddetection.domain.enums.EventType;
+import com.security.fraud_detection_engine.domain.enums.EventType;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Builder;
@@ -37,7 +37,6 @@ public class FraudEvent {
     @Column(name = "event_type", nullable = false)
     private EventType eventType;
 
-    // Device signals
     @Column(name = "device_id")
     private String deviceId;
 

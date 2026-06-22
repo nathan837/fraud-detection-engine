@@ -1,4 +1,4 @@
-package com.frauddetection.domain;
+package com.security.fraud_detection_engine.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
