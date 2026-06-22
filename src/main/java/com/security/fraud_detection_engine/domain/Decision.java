@@ -1,6 +1,6 @@
-package com.frauddetection.domain;
+package com.security.fraud_detection_engine.domain;
 
-import com.frauddetection.domain.enums.DecisionType;
+import com.security.fraud_detection_engine.domain.enums.DecisionType;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Builder;
