@@ -2,10 +2,7 @@ package com.security.fraud_detection_engine.domain;
 
 import com.security.fraud_detection_engine.domain.enums.EventType;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 import java.math.BigDecimal;
@@ -13,12 +10,12 @@ import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.UUID;
 
+@Entity
+@Table(name = "events")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "events")
 public class FraudEvent {
 
     @Id
@@ -43,20 +40,24 @@ public class FraudEvent {
     @Column(name = "ip_address")
     private String ipAddress;
 
+    @Column(name = "country")
     private String country;
+
+    @Column(name = "city")
     private String city;
 
     @Column(name = "user_agent")
     private String userAgent;
 
-    // Transaction fields (null for LOGIN events)
+    @Column(name = "amount", precision = 15, scale = 2)
     private BigDecimal amount;
+
+    @Column(name = "currency")
     private String currency;
 
     @Column(name = "recipient_id")
     private String recipientId;
 
-    // Full original request stored as JSON
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "raw_payload", columnDefinition = "jsonb")
     private Map<String, Object> rawPayload;
