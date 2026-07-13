@@ -1,4 +1,4 @@
-package com.security.fraud_detection_engine.repository.postgres;
+package com.security.fraud_detection_engine.repository.postgressitory.postgres;
 
 import com.security.fraud_detection_engine.domain.FraudRule;
 import com.security.fraud_detection_engine.domain.Tenant;
