@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface DeviceRepo extends JpaRepository<Device, UUID> {
+public interface DeviceRepository extends JpaRepository<Device, UUID> {
 
     // Check if this device is known for this user
     // Core check for new device rule

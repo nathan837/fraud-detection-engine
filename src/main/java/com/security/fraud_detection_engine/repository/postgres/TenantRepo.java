@@ -1,4 +1,4 @@
-package com.security.fraud_detection_engine.repository.postgressitory.postgres;
+package com.security.fraud_detection_engine.repository.postgres;
 
 import com.security.fraud_detection_engine.domain.Tenant;
 import org.springframework.data.jpa.repository.JpaRepository;

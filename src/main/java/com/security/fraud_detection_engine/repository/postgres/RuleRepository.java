@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface RuleRepo extends JpaRepository<FraudRule, UUID> {
+public interface RuleRepository extends JpaRepository<FraudRule, UUID> {
 
     @Query("SELECT r FROM FraudRule r " +
            "WHERE r.isActive = true " +
