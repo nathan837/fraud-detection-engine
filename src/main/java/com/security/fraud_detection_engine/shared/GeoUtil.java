@@ -4,7 +4,6 @@ public class GeoUtil {
 
     private static final double EARTH_RADIUS_KM = 6371.0;
 
-    // Haversine formula — calculates distance between two GPS coordinates
     public static double distanceKm(double lat1, double lng1,
                                      double lat2, double lng2) {
 
