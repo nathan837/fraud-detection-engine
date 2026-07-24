@@ -17,26 +17,18 @@ import java.util.UUID;
 @Repository
 public interface DecisionRepository extends JpaRepository<Decision, UUID> {
 
-    // Find decision by event — one decision per event
     Optional<Decision> findByEventId(UUID eventId);
 
-    // All decisions for a user — used in investigation
     List<Decision> findByUserOrderByCreatedAtDesc(User user);
 
-    // All blocked decisions for a tenant — used in dashboard
+    List<Decision> findByTenantOrderByCreatedAtDesc(Tenant tenant);
+
     List<Decision> findByTenantAndDecisionOrderByCreatedAtDesc(
-        Tenant tenant,
-        DecisionType decision
-    );
+        Tenant tenant, DecisionType decision);
 
-    // Decisions needing review — unreviewed blocks
     List<Decision> findByTenantAndDecisionAndReviewedByIsNull(
-        Tenant tenant,
-        DecisionType decision
-    );
+        Tenant tenant, DecisionType decision);
 
-    // Count decisions by type in a time window
-    // Used for dashboard metrics
     @Query("SELECT COUNT(d) FROM Decision d " +
            "WHERE d.tenant = :tenant " +
            "AND d.decision = :decision " +
@@ -44,6 +36,5 @@ public interface DecisionRepository extends JpaRepository<Decision, UUID> {
     long countByTenantAndDecisionSince(
         @Param("tenant") Tenant tenant,
         @Param("decision") DecisionType decision,
-        @Param("since") LocalDateTime since
-    );
+        @Param("since") LocalDateTime since);
 }
